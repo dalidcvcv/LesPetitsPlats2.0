@@ -1,0 +1,331 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  height: 667px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/icons/header-background.jpg");
+  background-size: cover;
+  background-position: center;
+
+}
+
+/* Logo */
+.logo {
+  position: absolute;
+  width: 207px;
+  height: 25.26px;
+  left: 69px;
+  top: 51px;
+}
+
+.title {
+  position: absolute;
+  width: 890px;
+  height: 132px;
+  left: 25%;
+  top: 190px;
+  color: #FFD15B;
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 66px;
+  text-align: center;
+}
+
+main {
+  background-color: lightgrey;
+  padding: 30px 70px;
+}
+
+/* Search bar */
+#search-bar {
+  position: absolute;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  top: 26%;
+  background: #FFFFFF;
+  border-radius: 10px;
+  left: 25%;
+}
+
+#inputSearch {
+  position: relative;
+  width: 839px;
+  height: 65px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  padding-left: 35px;
+  border: none;
+  color: #7A7A7A;
+  font-size: 22px;
+  line-height: 22px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#search-bar img {
+  width: fit-content;
+  padding: 0 10px 0 10px;
+  cursor: pointer;
+}
+
+input:focus {
+  outline: none;
+}
+
+.container-cards {
+  display: flex;
+  gap: 5%;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.card-container {
+  width: 380px;
+  height: 755px;
+  border-radius: 20px;
+  background-color: white;
+  margin: 30px 0;
+}
+
+.card-container img {
+  width: 380px;
+  height: 253px;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+}
+
+.card-container span {
+  display: inline-flex;
+  padding: 5px 10px;
+  justify-content: center;
+  border-radius: 14px;
+  background: var(--yellow, #FFD15B);
+  width: 65px;
+  transform: translate(260px, -250px);
+  font-size: 12px;
+  font-family: Manrope;
+  position: relative;
+  left: 0px;
+  top: 10px;
+  z-index: 3;
+}
+
+figcaption {
+  padding: 0 20px;
+}
+
+.card-container h2 {
+  font-family: Anton;
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+.card-container h3 {
+  font-family: Manrope;
+  font-size: 13px;
+  color: #7A7A7A;
+  margin-top: 30px;
+}
+
+.card-container p {
+  font-family: Manrope;
+  font-size: 15px;
+  max-height: 83px;
+  overflow: auto;
+  padding-right: 35px;
+}
+
+/* Filter by catery */
+.searchSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0 22px 20px 22px;
+}
+
+.dropdownMenu {
+  background: white;
+  width: 190px;
+  border-radius: 10px;
+  font-family: Manrope;
+  position: relative;
+}
+
+#category {
+  list-style-type: none;
+  background: white;
+  width: 190px;
+  border-radius: 0 0 11px 11px;
+  padding: 50px 0 0 0;
+  margin-top: 0;
+  max-height: 350px;
+  overflow-y: auto;
+  scrollbar-color: transparent transparent;
+  scrollbar-width: none;
+  z-index: 4;
+  position: relative;
+}
+
+.dropdownMenu li {
+  padding: 15px;
+  cursor: pointer;
+}
+
+.dropdownMenu li:hover {
+  background: #FFD15B;
+  cursor: pointer;
+}
+
+.dropdownMenu h3 {
+  padding: 0 20px;
+  font-weight: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdownMenu input {
+  height: 35px;
+  border-radius: 2px;
+  border: 1px solid #C6C6C6;
+  font-size: 14px;
+  font-family: Manrope;
+  color: #7A7A7A;
+  background: #FFFFFF;
+  position: absolute;
+  padding: 0px 5px;
+  width: 148px;
+  margin: 0px 15px;
+  z-index: 5;
+}
+
+.dropdownMenu h3::after {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  border-left: 0.1rem solid black;
+  border-bottom: 0.1rem solid black;
+  transform: rotate(315deg);
+  transition: transform 0.3s;
+}
+
+.dropdownMenu h3.open::after {
+  transform: rotate(135deg);
+} 
+
+.scrollable-container:not(.open),
+.input-category-search:not(.open),
+.span-category-search:not(.open) {
+  display: none;
+}
+
+span {
+  position: absolute;
+  left: 148px;
+  top: 68px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.scrollable-container {
+  overflow: hidden;
+  border-radius: 0 0 10px 10px;
+  height: 380px;
+  position: absolute;
+}
+
+#items-selected {
+display: flex;
+gap: 20px;
+list-style-type: none;
+padding-left: 22px;
+margin: 0;
+}
+
+#items-selected li{
+display: inline-flex;
+  padding: 17px 18px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  border-radius: 10px;
+  background: #FFD15B;
+  min-width: 100px;
+  color: #000;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+  
+.ul-card-ingredients {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.li-card-ingredients {
+  padding: 6px 0;
+  flex: 40%;
+}
+
+.ul-card-ingredients h4 {
+  margin: 0;
+  font-size: 14px;
+  font-family: Manrope;
+  font-weight: 500;
+}
+
+.ul-card-ingredients p {
+  margin: 0;
+  color: #7A7A7A;
+  font-size: 14px;
+  font-family: Manrope;
+}
+.searchArticle {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  gap: 65px;
+  align-items: flex-start;
+}
+.recipesCounter {
+  font-family: 'Anton', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 32px;
+  color: #1B1B1B;
+}
+.msgRecipeNul {
+  font-family: Manrope;
+  font-size: 25px;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.fa-xmark {
+  position: relative;
+  right: 12px;
+  color: #7A7A7A;
+}
+
+.fa-magnifying-glass {
+  position: relative;
+  right: 9px;
+  color: #7A7A7A;
+}
