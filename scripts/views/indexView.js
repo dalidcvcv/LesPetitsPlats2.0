@@ -144,27 +144,27 @@ class IndexView {
   }
 
   // Methode qui filtre les recettes par texte de recherche
-  filterBySearchText(filteredRecipes, searchText) {
-    const filterBySearchText = filteredRecipes.filter((recipe) => [recipe.name, recipe.description, 
-      recipe.ingredients.map((ingredient) => ingredient.ingredient.toLowerCase()),].some((text) => text.includes(searchText.toLowerCase())));
-    return filterBySearchText;
-  }
+  // filterBySearchText(filteredRecipes, searchText) {
+  //   const filterBySearchText = filteredRecipes.filter((recipe) => [recipe.name, recipe.description, 
+  //     recipe.ingredients.map((ingredient) => ingredient.ingredient.toLowerCase()),].some((text) => text.includes(searchText.toLowerCase())));
+  //   return filterBySearchText;
+  // }
 
   // Autre implémentation de la fonction filterBySearchText utilisant une boucle for
-  // filterBySearchText(filteredRecipes, searchText) {
-  //   const filteredBySearchText = [];
+  filterBySearchText(filteredRecipes, searchText) {
+    const filteredBySearchText = [];
 
-  //   for (const recipe of filteredRecipes) {
-  //     const { name, description, ingredients } = recipe;
-  //     const recipeTexts = [name, description, ...ingredients.map(ingredient => ingredient.ingredient)];
+    for (const recipe of filteredRecipes) {
+      const { name, description, ingredients } = recipe;
+      const recipeTexts = [name, description, ...ingredients.map(ingredient => ingredient.ingredient)];
 
-  //     if (recipeTexts.some(text => text.toLowerCase().includes(searchText.toLowerCase()))) {
-  //       filteredBySearchText.push(recipe);
-  //     }
-  //   }
+      if (recipeTexts.some(text => text.toLowerCase().includes(searchText.toLowerCase()))) {
+        filteredBySearchText.push(recipe);
+      }
+    }
 
-  //   return filteredBySearchText;
-  // }
+    return filteredBySearchText;
+  }
 
   // Initialise la condition de recherche et ajoute des gestionnaires d'événements
   ValideConditionSearch() {
