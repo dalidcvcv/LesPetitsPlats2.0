@@ -1,22 +1,12 @@
 class IndexView {
-  constructor(
-    ingredientsList,
-    ustensilsList,
-    appareilsList,
-    recipes,
-    categoryLists
-  ) {
+  constructor(ingredientsList, ustensilsList, appareilsList, recipes, categoryLists) {
     this.ingredientsList = ingredientsList;
     this.ustensilsList = ustensilsList;
     this.appareilsList = appareilsList;
     this.categoryLists = categoryLists;
     this.recipes = recipes;
     this.dropdownMenu = new DropdownMenu();
-    this.dropdownMenu.createMenus(
-      ingredientsList,
-      ustensilsList,
-      appareilsList
-    );
+    this.dropdownMenu.createMenus(ingredientsList, ustensilsList, appareilsList);
     this.addFilterEventListener();
     this.createRecipesCounter();
     this.recipesCounter(recipes);
@@ -150,21 +140,28 @@ class IndexView {
   //   return filterBySearchText;
   // }
 
-  // Autre implémentation de la fonction filterBySearchText utilisant une boucle for
   filterBySearchText(filteredRecipes, searchText) {
     const filteredBySearchText = [];
 
-    for (const recipe of filteredRecipes) {
-      const { name, description, ingredients } = recipe;
-      const recipeTexts = [name, description, ...ingredients.map(ingredient => ingredient.ingredient)];
+    for (let i = 0; i < filteredRecipes.length; i++) {
+        const recipe = filteredRecipes[i];
+        const { name, description, ingredients } = recipe;
 
-      if (recipeTexts.some(text => text.toLowerCase().includes(searchText.toLowerCase()))) {
-        filteredBySearchText.push(recipe);
-      }
+        const nameFind = name.toLowerCase().includes(searchText.toLowerCase());
+        const descriptionFind = description.toLowerCase().includes(searchText.toLowerCase());
+
+        const ingredientsTexts = ingredients.map(ingredient => ingredient.ingredient.toLowerCase());
+        const inIngredientsFind = ingredientsTexts.some(ingredient => ingredient.includes(searchText.toLowerCase()));
+
+        if (nameFind || descriptionFind || inIngredientsFind) {
+            filteredBySearchText.push(recipe);
+        }
     }
 
     return filteredBySearchText;
-  }
+}
+
+
 
   // Initialise la condition de recherche et ajoute des gestionnaires d'événements
   ValideConditionSearch() {
