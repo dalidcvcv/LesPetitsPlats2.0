@@ -150,22 +150,6 @@ class IndexView {
     return filterBySearchText;
   }
 
-  // Autre implémentation de la fonction filterBySearchText utilisant une boucle for
-  // filterBySearchText(filteredRecipes, searchText) {
-  //   const filteredBySearchText = [];
-
-  //   for (const recipe of filteredRecipes) {
-  //     const { name, description, ingredients } = recipe;
-  //     const recipeTexts = [name, description, ...ingredients.map(ingredient => ingredient.ingredient)];
-
-  //     if (recipeTexts.some(text => text.toLowerCase().includes(searchText.toLowerCase()))) {
-  //       filteredBySearchText.push(recipe);
-  //     }
-  //   }
-
-  //   return filteredBySearchText;
-  // }
-
   // Initialise la condition de recherche et ajoute des gestionnaires d'événements
   ValideConditionSearch() {
     const inputSearch = document.querySelector("#inputSearch");
