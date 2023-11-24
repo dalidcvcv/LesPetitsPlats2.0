@@ -125,24 +125,6 @@ class IndexView {
     return filteredByAppareil;
   }
 
-  // Methode qui retourne la liste des recettes filtrées par titre
-  searchByTitle(search, recipes) {
-    const searchByTitle = recipes.filter((recipe) => recipe.name.toLowerCase().includes(search.toLowerCase()));
-    return searchByTitle;
-  }
-
-  // Methode qui retourne la liste des recettes filtrées par description
-  searchByDescription(search, recipes) {
-    const searchByDescription = recipes.filter((recipe) => recipe.description.toLowerCase().includes(search.toLowerCase()));
-    return searchByDescription;
-  }
-
-  // Methode qui retourne la liste des recettes filtrées par ingrédient
-  searchByIngredient(search, recipes) {
-    const searchByIngredient = recipes.filter((recipe) => recipe.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(search.toLowerCase())));
-    return searchByIngredient;
-  }
-
   // Methode qui filtre les recettes par texte de recherche
   filterBySearchText(filteredRecipes, searchText) {
     const filterBySearchText = filteredRecipes.filter((recipe) => [recipe.name, recipe.description, 
